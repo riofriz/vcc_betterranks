@@ -1,0 +1,22 @@
+services:
+  vcc.betterranks.event:
+    class: 'vcc\betterranks\event\listener'
+    arguments:
+      - '@template'
+      - '@config'
+      - '@dbal.conn'
+      - '@path_helper'
+    tags:
+      - { name: 'event.listener' }
+
+  vcc.betterranks.controller.ucp.banners:
+    class: 'vcc\betterranks\controller\ucp_banners_controller'
+    arguments:
+      - '@config'
+      - '@controller.helper'
+      - '@template'
+      - '@language'
+      - '@auth'
+      - '@dbal.conn'
+      - '@user'
+      - '@request'

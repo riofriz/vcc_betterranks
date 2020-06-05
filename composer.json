@@ -1,0 +1,29 @@
+{
+	"name": "vcc/betterranks",
+	"type": "phpbb-extension",
+	"description": "Better ranks",
+	"homepage": "http://www.voidcentury.club",
+	"version": "2.0.0",
+	"time": "2020-04-28",
+	"license": "GPL-2.0",
+	"authors": [
+		{
+			"name": "riofriz",
+			"email": "voidcenturyclub@gmail.com",
+			"homepage": "http://www.voidcentury.club",
+			"role": "Original Developer"
+		}
+	],
+	"require": {
+		"php": ">=5.4.7"
+	},
+	"require-dev": {
+		"phpbb/epv": "dev-master"
+	},
+	"extra": {
+		"display-name": "Better Ranks",
+		"soft-require": {
+			"phpbb/phpbb": ">=3.3.0"
+		}
+	}
+}
