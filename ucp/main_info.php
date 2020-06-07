@@ -24,7 +24,7 @@ class main_info
                 'main'	=> array(
                     'title'	=> 'UCP_BANNERS',
                     'auth'	=> 'ext_vcc/betterranks',
-                    'cat'	=> array('UCP_BANNERS'),
+                    'cat'	=> array('UCP_PROFILE'),
                 ),
             ),
         );
