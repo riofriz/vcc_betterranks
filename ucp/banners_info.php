@@ -13,7 +13,7 @@ namespace vcc\betterranks\ucp;
 /**
  * Better Ranks UCP module info.
  */
-class main_info
+class banners_info
 {
     public function module()
     {

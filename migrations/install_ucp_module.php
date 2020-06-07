@@ -44,7 +44,7 @@ class install_ucp_module extends \phpbb\db\migration\migration
                     'module_auth'       => 'ext_vcc/betterranks',
                     'modes'				=> array('main'),
                 ),
-            ))
+            )),
         );
     }
 }

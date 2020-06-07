@@ -1,9 +1,34 @@
 {% include 'ucp_header.html' %}
 
+<!-- INCLUDE @vcc_betterranks/ucp_banners_style.html -->
+
 <h2>User Banners</h2>
 
-<form method="post" action="ACTION_HERE_LATER" data-ajax="true" data-refresh="true">
-	TEST
-</form>
+<div class="banners-container">
+
+	<!-- BEGIN available_banners -->
+	<form method="post" action="{{ U_UCP_ACTION }}" method="post" data-ajax="true" data-refresh="true">
+
+		<div class="image"><img src="{{ available_banners.RANK_IMAGE }}" alt="{{ available_banners.GROUP_NAME }}" /></div>
+
+		<div class="order-wrapper">
+			<label for="order_{{ available_banners.NO_DUPLICATED_ID }}">Banner order</label>
+			<input min="1" class="order inputbox autowidth" value="{{ available_banners.ORDER }}" type="number" id="order_{{ available_banners.NO_DUPLICATED_ID }}" name="order" style="max-width: 80px">
+		</div>
+		<div class="active">
+			<label for="active_{{ available_banners.NO_DUPLICATED_ID }}">Active</label>
+			<input type="checkbox" name="active" id="active_{{ available_banners.NO_DUPLICATED_ID }}" <!-- IF available_banners.ACTIVE == '1' -->checked<!-- ENDIF -->>
+		</div>
+
+		<input type="hidden" name="groupid" value="{{ available_banners.GROUP_ID }}">
+		{{ S_HIDDEN_FIELDS }}
+		{{ S_FORM_TOKEN }}
+
+		<input class="button1" type="submit" name="submitgroup" value="Submit" />
+		<div class="confirmation"></div>
+	</form>
+	<!-- END available_banners -->
+
+</div>
 
 {% include 'ucp_footer.html' %}

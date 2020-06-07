@@ -36,4 +36,5 @@ if (empty($lang) || !is_array($lang))
 
 $lang = array_merge($lang, array(
     'UCP_BANNERS' => 'Banners',
+    'UCP_BETTERRANKS_SAVED' => 'Your banner has been saved.',
 ));

@@ -160,8 +160,6 @@ class listener implements EventSubscriberInterface
                 'GROUP'  =>  $rankString[$niddle],
                 'GROUP_LIST' => $userGroups[$niddle]
             ];
-
-
         }
 
         return $template_data;
@@ -185,10 +183,11 @@ class listener implements EventSubscriberInterface
             $actualUsers = $user_ids;
         }
 
-        $sql = "SELECT phpbb_user_group.group_id, phpbb_groups.group_name, phpbb_groups.group_colour, phpbb_users.user_rank, phpbb_groups.group_rank, phpbb_ranks.rank_image, phpbb_user_group.user_id FROM phpbb_user_group LEFT JOIN phpbb_users ON phpbb_users.user_id = phpbb_user_group.user_id LEFT JOIN phpbb_groups ON phpbb_user_group.group_id = phpbb_groups.group_id LEFT JOIN phpbb_ranks ON phpbb_ranks.rank_id = phpbb_groups.group_rank WHERE phpbb_groups.group_rank != 0 AND phpbb_user_group.user_id IN($actualUsers) ORDER BY phpbb_groups.group_name ASC";
+        $sql = "SELECT phpbb_user_group.group_id, phpbb_user_group.order, phpbb_user_group.show_banner, phpbb_groups.group_name, phpbb_groups.group_colour, phpbb_users.user_rank, phpbb_groups.group_rank, phpbb_ranks.rank_image, phpbb_user_group.user_id FROM phpbb_user_group LEFT JOIN phpbb_users ON phpbb_users.user_id = phpbb_user_group.user_id LEFT JOIN phpbb_groups ON phpbb_user_group.group_id = phpbb_groups.group_id LEFT JOIN phpbb_ranks ON phpbb_ranks.rank_id = phpbb_groups.group_rank WHERE phpbb_groups.group_rank != 0 AND phpbb_user_group.user_id IN($actualUsers) AND phpbb_user_group.show_banner != 0 ORDER BY phpbb_user_group.order ASC";
         $result = $this->db->sql_query($sql);
         $rows = $this->db->sql_fetchrowset($result);
         $this->db->sql_freeresult($result);
+
 
         return $rows;
     }
