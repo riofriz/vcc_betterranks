@@ -13,18 +13,18 @@ namespace vcc\betterranks\ucp;
 /**
  * Better Ranks UCP module info.
  */
-class banner_info
+class main_info
 {
     public function module()
     {
         return array(
-            'filename'	=> '\vcc\betterranks\ucp\banner_module',
-            'title'		=> 'UCP_FLAIR',
+            'filename'	=> '\vcc\betterranks\ucp\banners_module',
+            'title'		=> 'UCP_BANNERS',
             'modes'		=> array(
                 'main'	=> array(
-                    'title'	=> 'UCP_FLAIR',
-                    'auth'	=> 'vcc/betterranks',
-                    'cat'	=> array('UCP_FLAIR'),
+                    'title'	=> 'UCP_BANNERS',
+                    'auth'	=> 'ext_vcc/betterranks',
+                    'cat'	=> array('UCP_BANNERS'),
                 ),
             ),
         );
