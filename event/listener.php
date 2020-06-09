@@ -107,6 +107,7 @@ class listener implements EventSubscriberInterface
         $user_id = $event['user_info']['user_id'];
         $user_posts = $event['user_info']['user_posts'];
         $extra_rank_template_data = $this->get_extra_rank_template_data($user_id, $user_posts);
+        if ($extra_rank_template_data == NULL) { $extra_rank_template_data = []; }
         $this->template->assign_vars($extra_rank_template_data);
     }
 
