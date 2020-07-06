@@ -15,19 +15,19 @@ namespace vcc\betterranks\ucp;
  */
 class banners_module
 {
-    public $u_action;
-    public $tpl_name;
-    public $page_title;
+	public $u_action;
+	public $tpl_name;
+	public $page_title;
 
-    public function main($id, $mode)
-    {
-        global $phpbb_container;
-        $controller = $phpbb_container->get('vcc.betterranks.controller.ucp.banners');
+	public function main($id, $mode)
+	{
+		global $phpbb_container;
+		$controller = $phpbb_container->get('vcc.betterranks.controller.ucp.banners');
 
-        $this->tpl_name = 'ucp_banners';
-        $this->page_title = 'UCP_BANNERS';
+		$this->tpl_name = 'ucp_banners';
+		$this->page_title = 'UCP_BANNERS';
 
-        $controller->set_page_url($this->u_action);
-        $controller->edit_banners();
-    }
+		$controller->set_page_url($this->u_action);
+		$controller->edit_banners();
+	}
 }

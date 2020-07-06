@@ -15,18 +15,18 @@ namespace vcc\betterranks\ucp;
  */
 class banners_info
 {
-    public function module()
-    {
-        return array(
-            'filename'	=> '\vcc\betterranks\ucp\banners_module',
-            'title'		=> 'UCP_BANNERS',
-            'modes'		=> array(
-                'main'	=> array(
-                    'title'	=> 'UCP_BANNERS',
-                    'auth'	=> 'ext_vcc/betterranks',
-                    'cat'	=> array('UCP_PROFILE'),
-                ),
-            ),
-        );
-    }
+	public function module()
+	{
+		return [
+			'filename'	=> '\vcc\betterranks\ucp\banners_module',
+			'title'		=> 'UCP_BANNERS',
+			'modes'		=> [
+				'main'	=> [
+					'title'	=> 'UCP_BANNERS',
+					'auth'	=> 'ext_vcc/betterranks',
+					'cat'	=> ['UCP_PROFILE'],
+				],
+			],
+		];
+	}
 }

@@ -1,23 +1,21 @@
 {% include 'ucp_header.html' %}
 
-<!-- INCLUDE @vcc_betterranks/ucp_banners_style.html -->
-
-<h2>User Banners</h2>
+<h2>{{ lang('VCC_USER_BANNERS') }}</h2>
 
 <div class="banners-container">
 
-	<!-- BEGIN available_banners -->
+	{% for available_banners in loops.available_banners %}
 	<form method="post" action="{{ U_UCP_ACTION }}" class="panel" method="post" data-ajax="true" data-refresh="true">
 
 		<div class="image"><img src="{{ available_banners.RANK_IMAGE }}" alt="{{ available_banners.GROUP_NAME }}" /></div>
 
 		<div class="order-wrapper">
-			<label for="order_{{ available_banners.NO_DUPLICATED_ID }}">Banner order</label>
+			<label for="order_{{ available_banners.NO_DUPLICATED_ID }}">{{ lang('VCC_BANNER_ORDER') }}</label>
 			<input min="1" class="order inputbox autowidth" value="{{ available_banners.ORDER }}" type="number" id="order_{{ available_banners.NO_DUPLICATED_ID }}" name="order" style="max-width: 80px">
 		</div>
 		<div class="active">
-			<label for="active_{{ available_banners.NO_DUPLICATED_ID }}">Active</label>
-			<input type="checkbox" name="active" id="active_{{ available_banners.NO_DUPLICATED_ID }}" <!-- IF available_banners.ACTIVE == '1' -->checked<!-- ENDIF -->>
+			<label for="active_{{ available_banners.NO_DUPLICATED_ID }}">{{ lang('VCC_BANNER_ACTIVE') }}</label>
+			<input type="checkbox" name="active" id="active_{{ available_banners.NO_DUPLICATED_ID }}" {% if available_banners.ACTIVE == '1' %}checked{% endif %}>
 		</div>
 
 		<input type="hidden" name="groupid" value="{{ available_banners.GROUP_ID }}">
@@ -27,8 +25,7 @@
 		<input class="button1" type="submit" name="submitgroup" value="Submit" />
 		<div class="confirmation"></div>
 	</form>
-	<!-- END available_banners -->
-
+	{% endfor %}
 </div>
 
 {% include 'ucp_footer.html' %}

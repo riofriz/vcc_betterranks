@@ -1,0 +1,53 @@
+.banners-container {
+	padding: 0.5em;
+	display: flex;
+	flex-wrap: wrap;
+	box-sizing: border-box;
+}
+
+.banners-container form {
+	padding: 0.5em;
+	box-sizing: border-box;
+	text-align: center;
+	display: block;
+	flex-wrap: nowrap;
+	justify-content: space-between;
+	border-radius: 0.5em;
+	margin-bottom: 1em;
+}
+
+.banners-container form > div {
+	padding: 0 1em;
+	box-sizing: border-box;
+	display: inline-block;
+	vertical-align: center;
+}
+
+.banners-container form > div.image {
+	padding-left: 0;
+}
+
+.banners-container form > div img {
+	height: auto;
+	object-fit: contain;
+}
+
+
+@media(max-width: 992px) {
+	.banners-container form {
+		justify-content: flex-start;
+	}
+
+	.banners-container form {
+		display: block;
+		width: 100%;
+		padding: 1em 0;
+		border-radius: 0.5em;
+		margin-bottom: 1em;
+	}
+
+	.banners-container form > div {
+		display: block;
+		padding: 0.5em 0;
+	}
+}
