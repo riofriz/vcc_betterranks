@@ -165,8 +165,11 @@ class listener implements EventSubscriberInterface
 	public function viewtopic_assign($event)
 	{
 		$poster_id = $event['poster_id'];
-		$extra_rank_template_data = $this->users_extra_rank_template_data[$poster_id];
-		$event['post_row'] = array_merge($event['post_row'], (array)$extra_rank_template_data);
+		$extra_rank_template_data = [];
+		if (isset($this->users_extra_rank_template_data[$poster_id])) {
+			$extra_rank_template_data = $this->users_extra_rank_template_data[$poster_id];
+		}
+		$event['post_row'] = array_merge($event['post_row'], $extra_rank_template_data);
 	}
 
 	/**
@@ -190,11 +193,11 @@ class listener implements EventSubscriberInterface
 			{
 				if ($user['rank_image'] !== '')
 				{
-					$rankString[$niddle] = $rankString[$niddle] . '<img data-rankid="' . $user['group_rank'] . '" class="special-rank" src="' . generate_board_url() . '/images/ranks/' . $user['rank_image'] . '" />';
+					$rankString[$niddle] = (isset($rankString[$niddle]) ? $rankString[$niddle] : "") . '<img data-rankid="' . $user['group_rank'] . '" class="special-rank" src="' . generate_board_url() . '/images/ranks/' . $user['rank_image'] . '" />';
 				}
 			}
 
-			$userGroups[$niddle] = $userGroups[$niddle] . '<a style="color: #' . $user["group_colour"] . '" href="memberlist.php?mode=group&g=' . $user['group_id'] . '">' . $user['group_name'] . '</a>';
+			$userGroups[$niddle] = (isset($userGroups[$niddle]) ? $userGroups[$niddle] : "") . '<a style="color: #' . $user["group_colour"] . '" href="memberlist.php?mode=group&g=' . $user['group_id'] . '">' . $user['group_name'] . '</a>';
 
 			$template_data[$niddle] = [
 				'GROUP'			=>	$rankString[$niddle],
